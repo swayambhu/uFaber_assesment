@@ -13,8 +13,9 @@ form.addEventListener("submit", (e) => {
 
 const isRequired = (value) => (value === "" ? false : true);
 
-const isBetween = (length, min, max) =>
+const isBetween = (length, min, max) =>{
   length < min || length > max ? false : true;
+}
 
 const isEmailValid = (email) => {
   const re =
@@ -54,10 +55,7 @@ const checkMobileNumber = () => {
   const min = 10,
     max = 12;
   const phoneNumber = Number(mobileNumber.value.trim());
-  if (!phoneNumber) {
-    showError(mobileNumber, "Only Numbers are allowed.");
-    return valid;
-  }
+
   if (!isRequired(phoneNumber)) {
     showError(mobileNumber, "Phone Number cannot be blank.");
   } else if (!isBetween(phoneNumber.length, min, max)) {
@@ -65,6 +63,8 @@ const checkMobileNumber = () => {
       mobileNumber,
       `Phone Number must be between ${min} and ${max - 1} characters long`,
     );
+  }else if (phoneNumber === NaN) {
+    showError(mobileNumber, "Only Numbers are allowed.");
   } else {
     showSuccess(mobileNumber);
     valid = true;

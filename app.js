@@ -14,7 +14,7 @@ form.addEventListener("submit", (e) => {
 const isRequired = (value) => (value === "" ? false : true);
 
 const isBetween = (length, min, max) =>{
-  length < min || length > max ? false : true;
+  return length < min || length > max ? false : true;
 }
 
 const isEmailValid = (email) => {

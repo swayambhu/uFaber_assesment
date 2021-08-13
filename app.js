@@ -129,7 +129,7 @@ form.addEventListener("submit", function (e) {
 
   // submit to the server if the form is valid
   if (isFormValid) {
-    location.pathname = location.pathname+"/home.html";
+    location.pathname = location.pathname+"home.html";
   }
 });
 
